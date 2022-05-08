@@ -51,21 +51,15 @@ const ConsoleProvider: React.FC<React.PropsWithChildren<{}>> = ({
 
     window.console.log = (...args) => {
       oriConsoleLog(...args);
-      setTimeout(() => {
-        console.log(...args);
-      }, 0);
+      console.log(...args);
     };
     window.console.warn = (...args) => {
       oriConsoleWarn(...args);
-      setTimeout(() => {
-        console.warn(...args);
-      }, 0);
+      console.warn(...args);
     };
     window.console.error = (...args) => {
       oriConsoleError(...args);
-      setTimeout(() => {
-        console.error(...args);
-      }, 0);
+      console.error(...args);
     };
 
     return () => {

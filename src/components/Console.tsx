@@ -6,14 +6,16 @@ const LogContainer: {
   warn: React.FC<React.PropsWithChildren<{}>>;
   error: React.FC<React.PropsWithChildren<{}>>;
 } = {
-  log: ({ children }) => <div className="text-craftSmall p-2">{children}</div>,
+  log: ({ children }) => (
+    <div className="flex flex-col gap-2 text-craftSmall p-2">{children}</div>
+  ),
   warn: ({ children }) => (
-    <div className="bg-yellow-100 text-yellow-700 text-craftSmall p-2">
+    <div className="bg-yellow-100 text-yellow-700 flex flex-col gap-2 text-craftSmall p-2">
       {children}
     </div>
   ),
   error: ({ children }) => (
-    <div className="bg-red-100 text-red-700 text-craftSmall p-2">
+    <div className="bg-red-100 text-red-700 flex flex-col gap-2 text-craftSmall p-2">
       {children}
     </div>
   ),
@@ -33,7 +35,7 @@ const Log: React.FC<
           🗑
         </button>
       </div>
-      <pre className="font-mono overflow-auto">
+      <pre className="inline-block font-mono break-all whitespace-pre-line">
         <code>
           {data
             .map((v) => {
@@ -57,15 +59,15 @@ const Console: React.FC<{
 
   return (
     <div className="flex flex-col">
-      <div
+      <button
         className="flex justify-center items-center h-12 text-craftBody font-semibold bg-zinc-300 dark:bg-zinc-800"
         onClick={() => setIsOpen((p) => !p)}
       >
         Console 🛰 - ({logs.length})
-      </div>
+      </button>
       {isOpen && (
-        <div className="flex flex-col max-h-64 overflow-auto bg-zinc-100 dark:bg-zinc-700">
-          {logs.reverse().map((log) => (
+        <div className="flex flex-col max-h-64 overflow-y-auto overflow-x-hidden bg-zinc-100 dark:bg-zinc-700">
+          {logs.map((log) => (
             <Log
               key={log.id}
               {...log}
