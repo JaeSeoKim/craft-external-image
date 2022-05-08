@@ -4,7 +4,7 @@
   "fileName": "craft-external-image",
   "author": "JaeSeoKim",
   "author-email": "devjaeseo@gmail.com",
-  "description": "Template for creating Craft Docs extensions with Typescript",
+  "description": "craft extension that helps you inject an external image source",
   "api": "0.0.4",
   "main": "index.html"
 }

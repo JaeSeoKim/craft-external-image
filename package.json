@@ -1,7 +1,17 @@
 {
   "name": "craft-external-image",
   "version": "0.0.1",
-  "description": "",
+  "description": "craft extension that helps you inject an external image source",
+  "license": "MIT",
+  "author": {
+    "name": "JaeSeoKim",
+    "email": "devjaeseo@gmail.com",
+    "url": "https://github.com/JaeSeoKim"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JaeSeoKim/craft-external-image.git"
+  },
   "scripts": {
     "build": "webpack --mode=production",
     "dev": "webpack serve --mode=development"
