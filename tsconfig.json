@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "jsx": "react",
+    "module": "amd",
+    "target": "es6",
+    "strict": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "types": ["node", "@craftdocs/craft-extension-api"],
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

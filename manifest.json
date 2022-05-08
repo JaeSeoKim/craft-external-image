@@ -1,0 +1,10 @@
+{
+  "id": "dev.jaeseokim.craft-external-image",
+  "name": "Craft External Image",
+  "fileName": "craft-external-image",
+  "author": "JaeSeoKim",
+  "author-email": "devjaeseo@gmail.com",
+  "description": "Template for creating Craft Docs extensions with Typescript",
+  "api": "0.0.4",
+  "main": "index.html"
+}
