@@ -6,6 +6,7 @@ const Home: React.FC = () => {
   return (
     <div className="flex flex-col gap-2">
       <button
+        className="flex"
         onClick={() => {
           console.log("test");
           console.warn("test");
@@ -20,6 +21,7 @@ const Home: React.FC = () => {
         <Card title="Test Routing">Test Routing</Card>
       </Link>
       <button
+        className="flex"
         onClick={() => {
           throw new Error("hello error");
         }}
