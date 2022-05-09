@@ -110,3 +110,4 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/react,yarn,macos,windows,linux
 
 dist
+.eslintcache
