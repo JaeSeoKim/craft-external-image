@@ -1,54 +1,43 @@
-import { ColorScheme } from "@craftdocs/craft-extension-api";
-import React, { useEffect, useState } from "react";
-import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
-import manifest from "../../manifest.json";
-import icon from "../icon.svg";
+import { ColorScheme } from '@craftdocs/craft-extension-api'
+import React, { useEffect, useState } from 'react'
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom'
+import manifest from '../../manifest.json'
+import icon from '../icon.svg'
 
-const isDev = process.env.NODE_ENV !== "production";
+const isDev = process.env.NODE_ENV !== 'production'
 
 const Layout: React.FC<{}> = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const isHome = location.pathname === "/";
-  const [colorSchema, setColorSchema] = useState<ColorScheme>("light");
+  const location = useLocation()
+  const navigate = useNavigate()
+  const isHome = location.pathname === '/'
+  const [colorSchema, setColorSchema] = useState<ColorScheme>('light')
 
   useEffect(() => {
-    craft.env.setListener((event) => {
-      setColorSchema(event.colorScheme);
-    });
-  }, []);
+    craft.env.setListener(event => {
+      setColorSchema(event.colorScheme)
+    })
+  }, [])
 
   useEffect(() => {
-    if (colorSchema === "dark") {
-      document.documentElement.classList.add("dark");
+    if (colorSchema === 'dark') {
+      document.documentElement.classList.add('dark')
     } else {
-      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.remove('dark')
     }
-  }, [colorSchema]);
+  }, [colorSchema])
 
   return (
     <div className="relative flex flex-col">
       {isHome ? (
         <div className="flex flex-col justify-center items-center gap-2 p-2">
-          <img
-            src={icon}
-            alt="craft external image logo"
-            className={"w-16 h-16"}
-          />
+          <img src={icon} alt="craft external image logo" className={'w-16 h-16'} />
           <div
-            className={`flex justify-center items-center ${
-              isHome ? "text-craftHeading" : "text-craftBody"
-            } font-bold`}
+            className={`flex justify-center items-center ${isHome ? 'text-craftHeading' : 'text-craftBody'} font-bold`}
           >
             <h1>{manifest.name}</h1>
             {isDev && (
-              <button
-                className="ml-2"
-                onClick={() =>
-                  setColorSchema((p) => (p === "dark" ? "light" : "dark"))
-                }
-              >
-                {colorSchema === "dark" ? "🌞" : "🌕"}
+              <button className="ml-2" onClick={() => setColorSchema(p => (p === 'dark' ? 'light' : 'dark'))}>
+                {colorSchema === 'dark' ? '🌞' : '🌕'}
               </button>
             )}
           </div>
@@ -59,12 +48,8 @@ const Layout: React.FC<{}> = () => {
             ←
           </button>
           {isDev && (
-            <button
-              onClick={() =>
-                setColorSchema((p) => (p === "dark" ? "light" : "dark"))
-              }
-            >
-              {colorSchema === "dark" ? "🌞" : "🌕"}
+            <button onClick={() => setColorSchema(p => (p === 'dark' ? 'light' : 'dark'))}>
+              {colorSchema === 'dark' ? '🌞' : '🌕'}
             </button>
           )}
         </div>
@@ -73,7 +58,7 @@ const Layout: React.FC<{}> = () => {
         <Outlet />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

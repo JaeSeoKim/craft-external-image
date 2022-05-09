@@ -1,12 +1,12 @@
-import React from "react";
-import { HashRouter, MemoryRouter, Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout";
-import Home from "./pages/home";
+import React from 'react'
+import { HashRouter, MemoryRouter, Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout'
+import Home from './pages/home'
 
-const isDev = process.env.NODE_ENV !== "production";
+const isDev = process.env.NODE_ENV !== 'production'
 
 export const App: React.FC<{}> = () => {
-  const Router = isDev ? HashRouter : MemoryRouter;
+  const Router = isDev ? HashRouter : MemoryRouter
 
   return (
     <Router>
@@ -17,5 +17,5 @@ export const App: React.FC<{}> = () => {
         </Route>
       </Routes>
     </Router>
-  );
-};
+  )
+}
