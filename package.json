@@ -16,7 +16,12 @@
     "build": "webpack --mode=production",
     "dev": "webpack serve --mode=development",
     "lint:format": "prettier --write .",
-    "lint:code": "eslint ."
+    "lint:code": "eslint .",
+    "postinstall": "husky install",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
   },
   "devDependencies": {
     "@craftdocs/craft-extension-api": "0.0.4",
@@ -38,7 +43,11 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.5.0",
+    "gitmoji-cli": "^5.0.0",
     "html-webpack-plugin": "5.5.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^12.4.1",
+    "pinst": "^3.0.0",
     "postcss": "^8.4.13",
     "postcss-loader": "^6.2.1",
     "prettier": "^2.6.2",
@@ -62,5 +71,9 @@
     "react-dom": "18.1.0",
     "react-router-dom": "^6.3.0"
   },
-  "packageManager": "yarn@3.2.0"
+  "packageManager": "yarn@3.2.0",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
+    "*.{js,jsx,ts,tsx,json,html,css}": "prettier --write"
+  }
 }
