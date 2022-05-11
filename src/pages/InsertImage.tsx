@@ -44,8 +44,6 @@ const InsertImage: React.FC = () => {
             [key in keyof typeof values]?: string
           } = {}
 
-          console.log(values)
-
           if (!values.url || values.url === '') {
             errors.url = 'The value of the URL must not be empty.'
           } else if (
