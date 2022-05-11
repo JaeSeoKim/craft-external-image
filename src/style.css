@@ -9,3 +9,7 @@ html {
 html.dark {
   @apply bg-craftDark text-craftLight;
 }
+
+*:focus-visible {
+  @apply outline-none ring-2 ring-sky-400 rounded;
+}

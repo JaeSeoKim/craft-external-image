@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom/client'
 import { ErrorBoundary } from 'react-error-boundary'
 
 import { App } from './app'
-import ConsoleProvider from './components/ConsoleProvider'
+import DomConsole from './components/DomConsole'
 import './style.css'
 
 const init = () => {
   const appNode = document.getElementById('react-root')
   ReactDOM.createRoot(appNode!).render(
     <React.StrictMode>
-      <ConsoleProvider>
+      <DomConsole>
         <ErrorBoundary
           fallback={<div>something has problem</div>}
           onError={(error, info) => {
@@ -19,7 +19,7 @@ const init = () => {
         >
           <App />
         </ErrorBoundary>
-      </ConsoleProvider>
+      </DomConsole>
     </React.StrictMode>,
   )
 }

@@ -1,6 +1,6 @@
-import { ColorScheme } from '@craftdocs/craft-extension-api'
+import type { ColorScheme } from '@craftdocs/craft-extension-api'
 import React, { useEffect, useState } from 'react'
-import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import manifest from '../../manifest.json'
 import icon from '../icon.svg'
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { LogType } from './ConsoleProvider'
+import { LogType } from './DomConsole'
 
 const LogContainer: {
   log: React.FC<React.PropsWithChildren<{}>>
@@ -54,7 +54,7 @@ const Console: React.FC<{
   return (
     <div className="flex flex-col">
       <button
-        className="flex justify-center items-center h-12 text-craftBody font-semibold bg-zinc-300 dark:bg-zinc-800"
+        className="flex justify-center items-center h-12 text-craftBody font-semibold bg-zinc-300 dark:bg-zinc-800 focus-visible:ring-inset"
         onClick={() => setIsOpen(p => !p)}
       >
         Console 🛰 - ({logs.length})
@@ -64,7 +64,10 @@ const Console: React.FC<{
           {logs.map(log => (
             <Log key={log.id} {...log} onDelete={() => setLogs(p => p.filter(v => v.id !== log.id))} />
           ))}
-          <button className="sticky bottom-0 bg-zinc-300 dark:bg-zinc-800 py-2" onClick={() => setLogs([])}>
+          <button
+            className="sticky bottom-0 bg-zinc-300 dark:bg-zinc-800 py-2 focus-visible:ring-inset"
+            onClick={() => setLogs([])}
+          >
             Clear All Logs
           </button>
         </div>

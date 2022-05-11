@@ -1,14 +1,6 @@
-import React, { createContext, useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { nanoid } from 'nanoid'
 import Console from './Console'
-
-type ConsoleContextType = {
-  log: (...args: any[]) => void
-  warn: (...args: any[]) => void
-  error: (...args: any[]) => void
-}
-
-const ConsoleContext = createContext<ConsoleContextType>(undefined as unknown as ConsoleContextType)
 
 export type LogType = {
   id: string
@@ -17,7 +9,7 @@ export type LogType = {
   data: any[]
 }
 
-const ConsoleProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
+const DomConsole: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   const [logs, setLogs] = useState<LogType[]>([])
 
   const console = useMemo(() => {
@@ -66,13 +58,11 @@ const ConsoleProvider: React.FC<React.PropsWithChildren<{}>> = ({ children }) =>
   }, [console])
 
   return (
-    <ConsoleContext.Provider value={console}>
-      <div className="flex flex-col justify-between min-h-screen max-h-screen">
-        {children}
-        <Console logs={logs} setLogs={setLogs} />
-      </div>
-    </ConsoleContext.Provider>
+    <div className="flex flex-col justify-between min-h-screen max-h-screen">
+      {children}
+      <Console logs={logs} setLogs={setLogs} />
+    </div>
   )
 }
 
-export default ConsoleProvider
+export default DomConsole
